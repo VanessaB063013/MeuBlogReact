@@ -4,7 +4,6 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box'
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
@@ -13,6 +12,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+import { Box } from '@mui/material'
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
         root: {
             flexGrow: 1,
             color: "rgb(209,49,224)",
-            
+
 
 
 
@@ -29,9 +29,11 @@ const useStyles = makeStyles((theme: Theme) =>
         menuButton: {
             marginRight: theme.spacing(2),
 
+
         },
         title: {
             flexGrow: 1,
+
 
         },
     }),
@@ -57,60 +59,40 @@ export default function Navbar() {
 
     return (
         <div className={classes.root}>
-            <FormGroup>
-                <FormControlLabel
-                    control={<Switch checked={auth} onChange={handleChange} aria-label="login switch" />}
-                    label={auth ? 'Logout' : 'Login'}
-                />
-            </FormGroup>
-            <AppBar position="static">
-                <Toolbar className='cor'>
 
+            <AppBar position="static" style={{backgroundColor:"#d131e0"}}>
+                <Toolbar>
 
-                    <Typography variant="h5" className={classes.title}>
-                        MeuBlog
+                    <Box style={{ marginRight: "60%" }}>
+                        <Typography variant="h5" className={classes.title} >
+                            MeuBlog
 
-                    </Typography>
-                    <Typography variant="h6" color="inherit" className='menu' style={{ cursor: "pointer" }}>
-                        home
-                    </Typography>
-                    <Typography variant="h6" color="inherit" className='menu' style={{ cursor: "pointer" }}>
-                        temas
-                    </Typography>
-                    <Typography variant="h6" color="inherit" className='menu' style={{ cursor: "pointer" }}>
-                        cadastrar tema
-                    </Typography>
-                    {auth && (
-                        <div>
-                            <IconButton
-                                aria-label="account of current user"
-                                aria-controls="menu-appbar"
-                                aria-haspopup="true"
-                                onClick={handleMenu}
-                                color="inherit"
-                            >
-                                <AccountCircle />
-                            </IconButton>
-                            <Menu
-                                id="menu-appbar"
-                                anchorEl={anchorEl}
-                                anchorOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'right',
-                                }}
-                                keepMounted
-                                transformOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'right',
-                                }}
-                                open={open}
-                                onClose={handleClose}
-                            >
-                                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                                <MenuItem onClick={handleClose}>My account</MenuItem>
-                            </Menu>
-                        </div>
-                    )}
+                        </Typography>
+                    </Box>
+                    
+                        <Box>
+                            <Typography variant="h6" color="inherit" className='menu' style={{ cursor: "pointer" }}>
+                                home
+                            </Typography>
+                        </Box>
+
+                        <Box>
+                            <Typography variant="h6" color="inherit" className='menu' style={{ cursor: "pointer" }}>
+                                temas
+                            </Typography>
+                        </Box>
+                        <Box>
+                            <Typography variant="h6" color="inherit" className='menu' style={{ cursor: "pointer" }}>
+                                cadastrar tema
+                            </Typography>
+                        </Box>
+                        <Box>
+                            <Typography variant="h6" color="inherit" className='menu' style={{ cursor: "pointer" }}>
+                                logout
+                            </Typography>
+                        </Box>
+                    
+
                 </Toolbar>
             </AppBar>
         </div >

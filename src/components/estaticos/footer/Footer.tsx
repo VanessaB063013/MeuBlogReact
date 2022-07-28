@@ -31,9 +31,9 @@ function footer() {
                             <Typography variant="subtitle2" align="center" gutterBottom style={{ color: "rgb(209,49,224)" }} >© 2022 Copyright:</Typography>
                         </Box>
                         <Box>
-                            <a target="_blank" href="https://brasil.generation.org">
+                        
                                 <Typography variant="subtitle2" gutterBottom style={{ color: "rgb(209,49,224)" }} align="center">Vanessa Basilio</Typography>
-                            </a>
+                            
                         </Box>
                     </Box>
                 </Grid>

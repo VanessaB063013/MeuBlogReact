@@ -19,7 +19,7 @@ function Home() {
                     </Box>
                 </Grid>
                 <Grid item xs={6} >
-                    <img className='img' src="https://cdn-icons-png.flaticon.com/512/4445/4445693.png" alt="" width="300px" height="300px"/>
+                    <img className='img' src="https://cdn-icons-png.flaticon.com/512/4445/4445693.png" alt=""  style={{width:"300px", height:"300px", marginLeft:"35%" , padding:"20px"}} />
                 </Grid>
                 <Grid xs={12} style={{ backgroundColor: "rgb(209,49,224)" }}>
                 </Grid>
