@@ -60,7 +60,7 @@ export default function Navbar() {
     return (
         <div className={classes.root}>
 
-            <AppBar position="static" style={{backgroundColor:"#d131e0"}}>
+            <AppBar position="static" className='cor'>
                 <Toolbar>
 
                     <Box style={{ marginRight: "60%" }}>
