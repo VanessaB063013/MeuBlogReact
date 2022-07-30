@@ -4,6 +4,7 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import { Typography,Grid } from '@material-ui/core';
 import {Box} from '@mui/material';
+
 function footer() {
     return (
         <>

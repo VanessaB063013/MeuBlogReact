@@ -12,7 +12,8 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import { Box } from '@mui/material'
+import { Box } from '@mui/material';
+import {Link} from 'react-router-dom';
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -69,29 +70,33 @@ export default function Navbar() {
 
                         </Typography>
                     </Box>
-                    
+                    <Link to='/home' className='text-decorator-none'>
                         <Box>
-                            <Typography variant="h6" color="inherit" className='menu' style={{ cursor: "pointer" }}>
+                            <Typography variant="h6" color="inherit" className='menu' style={{ cursor: "pointer" , color:"white"}}>
                                 home
                             </Typography>
                         </Box>
+                    </Link>
 
+                    <Box>
+                        <Typography variant="h6" color="inherit" className='menu' style={{ cursor: "pointer" }}>
+                            temas
+                        </Typography>
+                    </Box>
+                    <Box>
+                        <Typography variant="h6" color="inherit" className='menu' style={{ cursor: "pointer" }}>
+                            cadastrar tema
+                        </Typography>
+                    </Box>
+                    <Link to='/login' className='text-decorator-none'>
                         <Box>
-                            <Typography variant="h6" color="inherit" className='menu' style={{ cursor: "pointer" }}>
-                                temas
-                            </Typography>
-                        </Box>
-                        <Box>
-                            <Typography variant="h6" color="inherit" className='menu' style={{ cursor: "pointer" }}>
-                                cadastrar tema
-                            </Typography>
-                        </Box>
-                        <Box>
-                            <Typography variant="h6" color="inherit" className='menu' style={{ cursor: "pointer" }}>
+                            <Typography variant="h6" color="inherit" className='menu' style={{ cursor: "pointer", color: "white" }}>
                                 logout
                             </Typography>
                         </Box>
-                    
+                    </Link>
+
+
 
                 </Toolbar>
             </AppBar>
