@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState, ChangeEvent, useEffect } from 'react';
 import './Login.css';
 import { Box } from '@mui/material';
 import { Button, Grid, TextField } from '@material-ui/core';
@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import UserLogin from '../../models/UserLogin';
 import useLocalStorage from 'react-use-localstorage';
-import { api } from '../../services/Services';
+import { login } from '../../services/Services';
 
 function Login() {
     let history = useNavigate();
@@ -24,6 +24,12 @@ function Login() {
         }
     )
 
+    useEffect(()=>{
+        if(token !== ""){
+            history('/home')
+        }
+    },[token])
+
     function updatedModel(e: ChangeEvent<HTMLInputElement>) {
         setUserLogin(
             {
@@ -38,13 +44,9 @@ function Login() {
         e.preventDefault();
 
         try {
-            const resposta = await api.post(`/usuarios/logar`, userLogin)
-            setToken(resposta.data.token)
-            alert('Usuário logado com sucesso')
-
-        } catch (error) {
+             await login(`/usuarios/logar`, userLogin, setToken)
+            alert('Usuário logado com sucesso') } catch (error) {
             alert('Dados do usuário inconsistentes. Erro ao logar.')
-
         }
 
     }
