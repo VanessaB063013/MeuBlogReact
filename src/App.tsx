@@ -13,26 +13,20 @@ import ListaPostagem from './components/postagens/listapostagem/ListaPostagem';
 
 function App() {
   return (
-    <>
-      <Router>
-        <Navbar />
-        <div style={{ minHeight: '100vh' }}>
-          <Routes>
+    <Router>
+      <Navbar />
+      <div style={{ minHeight: '100vh' }}>
+        <Routes>
           <Route path="/" element={<Login />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/cadastrousuario" element={<CadastroUsuario />} />
-            <Route path="/temas" element={<ListaTema />} />
-            <Route path="/posts" element={<ListaPostagem />} />
-            <Route path="/login" element={<Login />} />
-        
-          </Routes>
-        </div>
-        <Footer />
-      </Router>
-
-
-    </>
-
+          <Route path="/home" element={<Home />} />
+          <Route path="/cadastrousuario" element={<CadastroUsuario />} />
+          <Route path="/tema" element={<ListaTema />} />
+          <Route path="/posts" element={<ListaPostagem />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </div>
+      <Footer />
+    </Router>
   );
 }
 

@@ -13,14 +13,14 @@ import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { Box } from '@mui/material';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             flexGrow: 1,
-            color: "rgb(209,49,224)",
+            color: "#ffff00",
 
 
 
@@ -64,7 +64,7 @@ export default function Navbar() {
             <AppBar position="static" className='cor'>
                 <Toolbar>
 
-                    <Box style={{ marginRight: "60%" }}>
+                    <Box style={{ marginRight: "60%", color: "black", fontWeight: "bold" }}>
                         <Typography variant="h5" className={classes.title} >
                             MeuBlog
 
@@ -72,17 +72,19 @@ export default function Navbar() {
                     </Box>
                     <Link to='/home' className='text-decorator-none'>
                         <Box>
-                            <Typography variant="h6" color="inherit" className='menu' style={{ cursor: "pointer" , color:"white"}}>
+                            <Typography variant="h6" color="inherit" className='menu' style={{ cursor: "pointer", color: "black" }}>
                                 home
                             </Typography>
                         </Box>
                     </Link>
 
-                    <Box>
-                        <Typography variant="h6" color="inherit" className='menu' style={{ cursor: "pointer" }}>
-                            temas
-                        </Typography>
-                    </Box>
+                    <Link to='/tema' className='text-decorator-none'>
+                        <Box>
+                            <Typography variant="h6" color="inherit" className='menu' style={{ cursor: "pointer" }}>
+                                temas
+                            </Typography>
+                        </Box>
+                    </Link>
                     <Box>
                         <Typography variant="h6" color="inherit" className='menu' style={{ cursor: "pointer" }}>
                             cadastrar tema

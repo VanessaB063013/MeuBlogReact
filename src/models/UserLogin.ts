@@ -1,9 +1,9 @@
 interface UserLogin {
     id : number;
-    foto: string| null;
     nome: string;
     usuario: string ;
     senha: string;
+    foto: string| null;
     token?: string| null
 }
 

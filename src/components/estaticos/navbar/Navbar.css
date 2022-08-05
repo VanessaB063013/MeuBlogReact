@@ -5,11 +5,12 @@
     
     padding:15px;
     font-size: 20px !important ;
+    color: #000 !important
    
 }
 
 .cor{
-    background: linear-gradient(90deg, #d131e0 0%, #d131e0cb 100%) !important;
+    background: #FBCA1F !important;
  }
  
  .text-decorator-none{
