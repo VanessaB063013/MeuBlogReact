@@ -11,29 +11,29 @@ function footer() {
         
         <Grid container direction="row" justifyContent="center" alignItems="center">
                 <Grid alignItems="center" item xs={12}>
-                    <Box style={{ backgroundColor: "#fff", height: "120px" }}>
+                    <Box style={{ backgroundColor: "#FBCA1F ", height: "120px" }}>
                         <Box paddingTop={1} display="flex" alignItems="center" justifyContent="center">
-                            <Typography variant="h5" align="center" gutterBottom style={{ color: "rgb(209,49,224)" }}>Siga-nos nas redes sociais </Typography>
+                            <Typography variant="h5" align="center" gutterBottom style={{ color: "black" }}>Siga-nos nas redes sociais </Typography>
                         </Box>
                         <Box display="flex" alignItems="center" justifyContent="center">
                             <a href="https://github.com/VanessaB063013/" target="_blank">
-                                <GitHubIcon style={{ fontSize: 60, color: "rgb(209,49,224)" }} />
+                                <GitHubIcon style={{ fontSize: 60, color: "black" }} />
                             </a>
                             <a href="https://www.facebook.com/vanessa.basiliojardim" target="_blank">
-                                <FacebookIcon style={{ fontSize: 60, color: "rgb(209,49,224)" }} />
+                                <FacebookIcon style={{ fontSize: 60, color: "black" }} />
                             </a>
                             <a href="https://www.linkedin.com/in/vanessa-basilio-/" target="_blank">
-                                <LinkedInIcon style={{ fontSize: 60, color: "rgb(209,49,224)" }} />
+                                <LinkedInIcon style={{ fontSize: 60, color: "black" }} />
                             </a>
                         </Box>
                     </Box>
-                    <Box style={{ backgroundColor: "#fff", height: "60px" }}>
+                    <Box style={{ backgroundColor: "#e3b104", height: "60px" }}>
                         <Box paddingTop={1}>
-                            <Typography variant="subtitle2" align="center" gutterBottom style={{ color: "rgb(209,49,224)" }} >© 2022 Copyright:</Typography>
+                            <Typography variant="subtitle2" align="center" gutterBottom style={{ color: "black" }} >© 2022 Copyright:</Typography>
                         </Box>
                         <Box>
                         
-                                <Typography variant="subtitle2" gutterBottom style={{ color: "rgb(209,49,224)" }} align="center">Vanessa Basilio</Typography>
+                                <Typography variant="subtitle2" gutterBottom style={{ color: "black" }} align="center">Vanessa Basilio</Typography>
                             
                         </Box>
                     </Box>

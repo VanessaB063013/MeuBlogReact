@@ -1,43 +1,70 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './ListaPostagem.css';
 import { Box } from '@mui/material';
 import { CarRentalOutlined } from '@mui/icons-material';
 import { Button, Card, CardActions, CardContent, Typography } from '@material-ui/core';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import Postagem from '../../../models/Postagem';
+import useLocalStorage from 'react-use-localstorage';
+import { busca } from '../../../services/Services';
 
 function ListaPostagem() {
+    
+        let history = useNavigate();
+        const [posts, setPosts] = useState<Postagem[]>([])
+        const [token, setToken] = useLocalStorage('token');
+    
+        useEffect(() => {
+            if (token == '') {
+                alert('Por favor, faça o login.')
+                history('/login')
+            }
+        }, [token])
+    
+        async function getPostagem() {
+            await busca("/postagens", setPosts, {
+                headers: {
+                    'Authorization': token
+                }
+            })
+        }
+    
+        useEffect(() => {
+            getPostagem()
+        }, [posts.length])
     return(
         <>
-        <Box m={2}>
-            <Card variant="outlined">
+        {posts.map(post => (
+        <Box m={2} >
+            <Card variant="outlined" >
                 <CardContent>
-                    <Typography color='textSecondary' gutterBottom style={{fontStyle:'italic', color:'rgb(209,49,224)'}} >
+                    <Typography color='textSecondary' gutterBottom style={{fontStyle:'italic', color:'black'}} >
                         Postagens
                     </Typography>
-                    <Typography variant="h5" component="h2" style={{color:'#e25ec5'}}>
-                        Título
+                    <Typography variant="h5" component="h2" style={{color:'black', fontWeight:'bold'}}>
+                        {post.titulo}
                    </Typography>
-                   <Typography variant="h5" component="h2" style={{color:'#e25ec5'}}>
-                        Texto da postagem
+                   <Typography variant="h5" component="h2" style={{color:'black'}}>
+                        {post.texto}
                    </Typography>
-                   <Typography variant="h5" component="h2" style={{color:'#e25ec5'}}>
-                        Tema
+                   <Typography variant="h5" component="h2" style={{color:'black', fontWeight:'bold'}}>
+                        {post.tema?.descricao}
                    </Typography>
 
                 </CardContent>
                 <CardActions>
                     <Box display="flex" justifyContent="center" mb={1.5}>
-                        <Link to="" style={{textDecoration:'none'}}>
+                        <Link to={`/formularioPostagem/${post.id}`} style={{textDecoration:'none'}} >
                             <Box mx={1}>
-                                <Button variant="contained" className="marginLeft" size='small' color="primary" style={{backgroundColor:'#ffdd', color:'rgb(209,49,224)', textDecoration:'none', fontWeight:'bold'}} >
+                                <Button variant="contained" className="marginLeft, b ,b-top" size='small' color="primary" >
                                     atualizar
                                 </Button>
                             </Box>
                         </Link>
 
-                        <Link to="" style={{textDecoration:'none'}}>
+                        <Link to={`/deletarPostagem/${post.id}`} style={{textDecoration:'none'}}>
                             <Box mx={1}>
-                                <Button variant="contained" className="marginLeft" size='small' color="secondary" style={{backgroundColor:'#ffdd', color:'rgb(209,49,224)', fontWeight:'bold'}}  >
+                                <Button variant="contained" className="marginLeft, b," size='small' color="secondary"   >
                                     deletar
                                 </Button>
                             </Box>
@@ -52,6 +79,8 @@ function ListaPostagem() {
 
 
         </Box>
+        ))
+        }
         
     </>
 

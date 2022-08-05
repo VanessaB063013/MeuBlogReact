@@ -13,97 +13,80 @@ import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { Box } from '@mui/material';
-import { Link } from 'react-router-dom';
-
-
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        root: {
-            flexGrow: 1,
-            color: "#ffff00",
+import { Link, useNavigate } from 'react-router-dom';
+import useLocalStorage from 'react-use-localstorage';
 
 
 
-
-
-        },
-        menuButton: {
-            marginRight: theme.spacing(2),
-
-
-        },
-        title: {
-            flexGrow: 1,
-
-
-        },
-    }),
-);
 
 export default function Navbar() {
-    const classes = useStyles();
-    const [auth, setAuth] = React.useState(true);
-    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-    const open = Boolean(anchorEl);
+    let history = useNavigate();
+    const [token, setToken] = useLocalStorage('token')
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setAuth(event.target.checked);
-    };
-
-    const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
+    function goLogout() {
+        setToken('')
+        alert('Usuário deslogado.')
+        history('/login')
+    }
 
     return (
-        <div className={classes.root}>
+        <>
 
             <AppBar position="static" className='cor'>
                 <Toolbar>
 
-                    <Box style={{ marginRight: "60%", color: "black", fontWeight: "bold" }}>
-                        <Typography variant="h5" className={classes.title} >
+                    <Box style={{ marginRight: "50%", color: "black" }}  className="name-meu-blog">
+                        <Typography variant="h5" >
                             MeuBlog
 
                         </Typography>
                     </Box>
-                    <Link to='/home' className='text-decorator-none'>
+                    <Link to='/home' className='text-decorator-none' >
                         <Box>
                             <Typography variant="h6" color="inherit" className='menu' style={{ cursor: "pointer", color: "black" }}>
                                 home
                             </Typography>
                         </Box>
                     </Link>
-
-                    <Link to='/tema' className='text-decorator-none'>
+                    <Link to='/posts' className='text-decorator-none' >
                         <Box>
-                            <Typography variant="h6" color="inherit" className='menu' style={{ cursor: "pointer" }}>
-                                temas
+                            <Typography variant="h6" color="inherit" className='menu' style={{ cursor: "pointer", color: "black" }}>
+                                postagens
                             </Typography>
                         </Box>
                     </Link>
+                    
+                <Link to='/tema' className='text-decorator-none'>
                     <Box>
-                        <Typography variant="h6" color="inherit" className='menu' style={{ cursor: "pointer" }}>
-                            cadastrar tema
+                        <Typography variant="h6" color="inherit" className='menu' style={{ cursor: "pointer", color: "black" }}>
+                            temas
                         </Typography>
                     </Box>
-                    <Link to='/login' className='text-decorator-none'>
-                        <Box>
-                            <Typography variant="h6" color="inherit" className='menu' style={{ cursor: "pointer", color: "white" }}>
-                                logout
-                            </Typography>
-                        </Box>
-                    </Link>
+                </Link>
+
+                <Link to='/formularioTema' className='text-decorator-none'>
+                    <Box>
+                        <Typography variant="h6" color="inherit" className='menu' style={{ cursor: "pointer", color: "black" }}>
+                            cadastrar tema
+                        </Typography>
+
+                    </Box>
+                </Link>
+                
+                    <Box onClick={goLogout}>
+                        <Typography variant="h6" color="inherit" className='menu' style={{ cursor: "pointer", color: "black" }}>
+                            logout
+                        </Typography>
+                    </Box>
+            
 
 
 
-                </Toolbar>
-            </AppBar>
-        </div >
+            </Toolbar>
+        </AppBar>
+        </>
     );
+
 }
 
 

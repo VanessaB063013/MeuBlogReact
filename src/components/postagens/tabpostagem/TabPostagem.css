@@ -1,9 +1,14 @@
 .MuiTabPanel-root {
     padding: 24px;
-    background-color: #fff!important;
+    background-color:#fde283!important;
     border: 0px!important;
 }
 element.style {
 border: 0px!important;
+}
+
+.MuiTabs-flexContainer {
+    display: flex;
+    background-color: #feeeb5;
 }
 

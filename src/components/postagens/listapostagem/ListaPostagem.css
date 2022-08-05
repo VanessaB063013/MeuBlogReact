@@ -8,3 +8,36 @@
 
 }
 
+b {
+    /* Variables */
+   --button_radius: 0.75em!important;
+   --button_color: #e8e8e8!important;
+   --button_outline_color: #000000!important;
+   font-size: 17px!important;
+   font-weight: bold!important;
+   border: none!important;
+   border-radius: var(--button_radius)!important;
+   background: var(--button_outline_color)!important;
+  }
+  
+  .b-top {
+   display: block!important;
+   box-sizing: border-box!important;
+   border: 2px solid var(--button_outline_color)!important;
+   border-radius: var(--button_radius)!important;
+   padding: 0.75em 1.5em!important;
+   background: var(--button_color)!important;
+   color: var(--button_outline_color)!important;
+   transform: translateY(-0.2em)!important;
+   transition: transform 0.1s ease!important;
+  }
+  
+  b:hover .b-top {
+    /* Pull the button upwards when hovered */
+   transform: translateY(-0.33em)!important;
+  }
+  
+  b:active .b-top {
+    /* Push the button downwards when pressed */
+   transform: translateY(0)!important;
+  }

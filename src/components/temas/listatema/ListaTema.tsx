@@ -36,13 +36,13 @@ function ListaTema() {
     return (
         <>
             {temas.map(tema => (
-                <Box m={2}>
+                <Box m={2} style={{backgroundColor:"#ffffcc"}}>
                     <Card variant="outlined">
                         <CardContent>
-                            <Typography color='textSecondary' gutterBottom style={{ fontStyle: 'italic', color: 'rgb(209,49,224)' }}>
+                            <Typography color='textSecondary' gutterBottom style={{ fontStyle: 'italic', color: 'black' }}>
                                 Tema
                             </Typography>
-                            <Typography variant="h5" component="h2" style={{ color: '#e25ec5' }}>
+                            <Typography variant="h5" component="h2" style={{ color: 'black' }}>
                                 {tema.descricao}
 
                             </Typography>
