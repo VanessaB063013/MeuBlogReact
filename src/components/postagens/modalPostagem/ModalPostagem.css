@@ -2,7 +2,21 @@
     cursor: pointer;
 }
 
-.btnModal{
-    border-color: white !important;
-    background-color: white !important;
-}
+
+
+.botao{
+    background: #FBCA1F!important;
+  font-family: inherit!important;;
+  padding: 0.6em 1.3em!important;;
+  font-weight: 900!important;;
+  font-size: 18px!important;;
+  border: 3px solid black!important;;
+  border-radius: 0.4em!important;;
+  box-shadow: 0.1em 0.1em!important;;
+  transform: translate(-0.05em, -0.05em)!important;;
+  box-shadow: 0.15em 0.15em!important;;
+  transform: translate(0.05em, 0.05em)!important;;
+  box-shadow: 0.05em 0.05em!important;
+ }
+
+ 

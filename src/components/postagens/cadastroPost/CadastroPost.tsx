@@ -111,6 +111,7 @@ function CadastroPost() {
                 <FormControl >
                     <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>
                     <Select
+                         
                         labelId="demo-simple-select-helper-label"
                         id="demo-simple-select-helper"
                             onChange={(e) => buscaId(`/tema/${e.target.value}`, setTema, {
@@ -126,7 +127,7 @@ function CadastroPost() {
                     
                     </Select>
                     <FormHelperText>Escolha um tema para a postagem</FormHelperText>
-                    <Button type="submit" variant="contained" color="primary">
+                    <Button type="submit" variant="contained" color="primary" className="button">
                         Finalizar
                     </Button>
                 </FormControl>

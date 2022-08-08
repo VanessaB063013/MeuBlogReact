@@ -51,7 +51,7 @@ function ListaTema() {
                             <Box display="flex" justifyContent="center" mb={1.5}>
                                 <Link to={`/formularioTema/${tema.id}`} className="text-decorator.none" style={{ textDecoration: 'none' }}>
                                     <Box mx={1}>
-                                        <Button variant="contained" className="marginLeft" size='small' color="primary" style={{ backgroundColor: '#ffdd', color: 'rgb(209,49,224)', fontWeight: 'bold' }}>
+                                        <Button variant="contained" className="button" size='small' color="primary" style={{ backgroundColor: '#ffdd', color: 'rgb(209,49,224)', fontWeight: 'bold' }}>
                                             atualizar
                                         </Button>
                                     </Box>
@@ -59,7 +59,7 @@ function ListaTema() {
 
                                 <Link to={`/deletarTema/${tema.id}`} style={{ textDecoration: 'none' }}>
                                     <Box mx={1}>
-                                        <Button variant="contained" className="marginLeft" size='small' color="secondary" style={{ backgroundColor: '#ffdd', color: 'rgb(209,49,224)', fontWeight: 'bold' }}>
+                                        <Button variant="contained" className="button" size='small' color="secondary" style={{ backgroundColor: '#ffdd', color: 'rgb(209,49,224)', fontWeight: 'bold' }}>
                                             deletar
                                         </Button>
                                     </Box>

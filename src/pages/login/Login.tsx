@@ -56,14 +56,14 @@ function Login() {
                 <Grid xs={6} alignItems='center'>
                     <Box paddingX={20}>
                         <form onSubmit={onSubmit}>
-                            <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' style={{ fontWeight: 'bold', color: "rgb(209,49,224) ", padding: '5%' }} >
+                            <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' style={{ fontWeight: 'bold', color: "#1b1500 ", padding: '5%' }} >
                                 Entrar
                             </Typography>
                             <TextField value={userLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='usuário' variant='outlined' name='usuario' margin='normal' fullWidth />
                             <TextField value={userLogin.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
                             <Box marginTop={2} textAlign='center'>
 
-                                <Button type='submit' variant='contained' style={{ color: "rgb(209,49,224)" ,backgroundColor:'#ffdd',  textDecoration:'none', fontWeight:'bold'}}>
+                                <Button type='submit' variant='contained' className="button">
                                     Logar
                                 </Button>
 
@@ -72,10 +72,10 @@ function Login() {
                         </form>
                         <Box display='flex' justifyContent='center' marginTop={2}>
                             <Box>
-                                <Typography variant='subtitle1' gutterBottom align='center' style={{ marginRight: '10px', color: 'rgb(209,49,224)' }}> Não tem uma conta?</Typography>
+                                <Typography variant='subtitle1' gutterBottom align='center' style={{ marginRight: '10px', color: '#1b1500 ' }}> Não tem uma conta?</Typography>
                             </Box>
                             <Link to='/cadastrousuario' className='text-decorator-none'>
-                                <Typography variant='subtitle1' gutterBottom align='center' style={{ fontWeight: 'bold', color: 'rgb(209,49,224)' }}>  Cadastre-se</Typography>
+                                <Typography variant='subtitle1' gutterBottom align='center' style={{ fontWeight: 'bold', color: '#1b1500 ' }}>  Cadastre-se</Typography>
                             </Link>
 
                         </Box>
