@@ -5,14 +5,17 @@ import { CarRentalOutlined } from '@mui/icons-material';
 import { Button, Card, CardActions, CardContent, Typography } from '@material-ui/core';
 import { Link, useNavigate } from 'react-router-dom';
 import Postagem from '../../../models/Postagem';
-import useLocalStorage from 'react-use-localstorage';
 import { busca } from '../../../services/Services';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/TokensReducer';
 
 function ListaPostagem() {
     
         let history = useNavigate();
         const [posts, setPosts] = useState<Postagem[]>([])
-        const [token, setToken] = useLocalStorage('token');
+        const token = useSelector<TokenState, TokenState["tokens"]>(
+            (state) => state.tokens
+        );
     
         useEffect(() => {
             if (token == '') {

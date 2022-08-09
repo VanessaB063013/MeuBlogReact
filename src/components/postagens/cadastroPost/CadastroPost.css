@@ -29,3 +29,7 @@
     /* Push the button downwards when pressed */
    transform: translateY(0)!important;
 }
+
+.MuiInput-underline:after{
+    border-bottom: 2px solid black!important;
+}

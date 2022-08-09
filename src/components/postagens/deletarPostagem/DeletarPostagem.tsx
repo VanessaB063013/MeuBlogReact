@@ -5,13 +5,17 @@ import './DeletarPostagem.css';
 import Postagem from '../../../models/Postagem';
 import { buscaId, deleteId } from '../../../services/Services';
 import { useNavigate, useParams } from 'react-router-dom';
-import useLocalStorage from 'react-use-localstorage';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/TokensReducer';
 
 function DeletarPostagem() {
   let navigate = useNavigate();
     const { id } = useParams<{id: string}>();
-    const [token, setToken]=useLocalStorage('token')
     const [post, setPosts]=useState<Postagem>()
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+      (state) => state.tokens
+  );
+
     useEffect(() => {
         if (token == "") {
             alert("Você precisa estar logado")

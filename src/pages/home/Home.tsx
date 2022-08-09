@@ -6,11 +6,13 @@ import TabPostagem from '../../components/postagens/tabpostagem/TabPostagem';
 import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import useLocalStorage from 'react-use-localstorage';
+import { TokenState } from '../../store/tokens/TokensReducer';
 
 function Home() {
     let navigate = useNavigate();
-    const [token, setToken] = useLocalStorage('token');
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    );
 
     useEffect(() => {
         if (token == "") {
@@ -41,7 +43,7 @@ function Home() {
 
                 </Grid>
                 <Grid item xs={6} >
-                    <img className='img' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlY9Klfh-_qgvMUcM5jrepWJXsuGlxCGzxhg&usqp=CAU" alt="" style={{ width: "300px", height: "300px", marginLeft: "35%", padding: "20px", borderRadius: "50%" }} />
+                    <img className='img' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlY9Klfh-_qgvMUcM5jrepWJXsuGlxCGzxhg&usqp=CAU" alt="" style={{ width: "400px", height: "400px", marginLeft: "25%", padding: "20px", borderRadius: "50%" }} />
                 </Grid>
                 <Grid xs={12} style={{ backgroundColor: "black" }} className="postagens">
                     <TabPostagem />
