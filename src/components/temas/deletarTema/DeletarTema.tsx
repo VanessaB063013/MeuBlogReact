@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Card, CardActions, CardContent, Button, Typography} from '@material-ui/core';
+import { Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import { Box } from '@mui/material';
 import './DeletarTema.css';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -7,53 +7,72 @@ import { buscaId, deleteId } from '../../../services/Services';
 import Tema from '../../../models/Tema';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/TokensReducer';
+import { toast } from 'react-toastify';
 
 
 function DeletarTema() {
 
   let navigate = useNavigate();
-    const { id } = useParams<{id: string}>();
-    const token = useSelector<TokenState, TokenState["tokens"]>(
-      (state) => state.tokens
+  const { id } = useParams<{ id: string }>();
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
   );
-    const [tema, setTema] = useState<Tema>()
+  const [tema, setTema] = useState<Tema>()
 
-    useEffect(() => {
-        if (token == "") {
-            alert("Você precisa estar logado")
-            navigate("/login")
-    
-        }
-    }, [token])
+  useEffect(() => {
+    if (token == "") {
+      toast.error('Você precisa estar logado', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "colored",
+        progress: undefined
+      });
+      navigate("/login")
 
-    useEffect(() =>{
-        if(id !== undefined){
-            findById(id)
-        }
-    }, [id])
+    }
+  }, [token])
 
-    async function findById(id: string) {
-        buscaId(`/tema/${id}`, setTema, {
-            headers: {
-              'Authorization': token
-            }
-          })
-        }
+  useEffect(() => {
+    if (id !== undefined) {
+      findById(id)
+    }
+  }, [id])
 
-        function sim() {
-          navigate('/temas')
-            deleteId(`/tema/${id}`, {
-              headers: {
-                'Authorization': token
-              }
-            });
-            alert('Tema deletado com sucesso');
-          }
-        
-          function nao() {
-            navigate('/temas')
-          }
-          
+  async function findById(id: string) {
+    buscaId(`/tema/${id}`, setTema, {
+      headers: {
+        'Authorization': token
+      }
+    })
+  }
+
+  function sim() {
+    navigate('/temas')
+    deleteId(`/tema/${id}`, {
+      headers: {
+        'Authorization': token
+      }
+    });
+    toast.success('Tema deletado com sucesso', {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: false,
+      theme: "colored",
+      progress: undefined
+    });
+  }
+
+  function nao() {
+    navigate('/temas')
+  }
+
   return (
     <>
       <Box m={2}>
@@ -64,19 +83,19 @@ function DeletarTema() {
                 Deseja deletar o Tema:
               </Typography>
               <Typography color="textSecondary">
-              {tema?.descricao}
+                {tema?.descricao}
               </Typography>
             </Box>
           </CardContent>
           <CardActions>
             <Box display="flex" justifyContent="start" ml={1.0} mb={2} >
               <Box mx={2}>
-                <Button onClick={sim}  variant="contained" className="button" size='large' color="primary">
+                <Button onClick={sim} variant="contained" className="button" size='large' color="primary">
                   Sim
                 </Button>
               </Box>
               <Box mx={2}>
-                <Button onClick={nao}  variant="contained" size='large' color="secondary" className="button">
+                <Button onClick={nao} variant="contained" size='large' color="secondary" className="button">
                   Não
                 </Button>
               </Box>
@@ -87,4 +106,5 @@ function DeletarTema() {
     </>
   );
 }
+
 export default DeletarTema;

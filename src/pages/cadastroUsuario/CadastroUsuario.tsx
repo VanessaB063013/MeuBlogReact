@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import User from "../../models/User"
 import { cadastroUsuario } from '../../services/Services';
-
+import {toast} from 'react-toastify';
 
 function CadastroUsuario() {
     let history = useNavigate();
@@ -54,12 +54,42 @@ function CadastroUsuario() {
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
-        if (confirmarSenha == user.senha) {
-            console.log(user)
-            cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
-            alert('Usuário cadastrado com sucesso')
+        if (confirmarSenha === user.senha && user.senha.length >= 8) {
+            try {
+           await cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
+            toast.success('Usuário cadastrado com sucesso',{
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress:undefined
+            })}catch (error) {
+                console.log(`Error: ${error}`)
+                toast.error('Usuário já existente',{
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "colored",
+                    progress:undefined
+                });
+            }; 
         } else {
-            alert("Dados inconsistentes. Por favor, verificar as informações de cadastro.")
+            toast.error('Dados inconsistentes. Por favor, verificar as informações de cadastro',{
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress:undefined
+            });
 
         }
     }

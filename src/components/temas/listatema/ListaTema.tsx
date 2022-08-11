@@ -7,6 +7,7 @@ import { busca } from '../../../services/Services';
 import './ListaTema.css';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/TokensReducer';
+import {toast} from 'react-toastify';
 
 
 function ListaTema() {
@@ -18,7 +19,16 @@ function ListaTema() {
 
     useEffect(() => {
         if (token == '') {
-            alert('Por favor, faça o login.')
+            toast.error('Por favor, faça o login.',{
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress:undefined
+            });
             history('/login')
         }
     }, [token])
